@@ -1,0 +1,15 @@
+.captcha{
+    width: 120px;
+}
+.captcha{
+    margin-left: 20px;
+}
+
+#formComment{
+    display: flex;
+    flex-direction: column;
+}
+
+#btn-submit{
+    margin-left: auto;
+}
