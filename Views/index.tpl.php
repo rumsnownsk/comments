@@ -1,6 +1,5 @@
 <?php
 $comments = get_comments();
-
 ?>
 
 <!doctype html>
@@ -31,11 +30,23 @@ $comments = get_comments();
             </div>
             <div class="mb-3 d-flex ">
 
-
+                <div class="captcha">
+                    <div class="captcha_image">
+                        <div id="captcha_image">
+                            <img class="" src="<?= $builder->inline(); ?>" width="132" alt="captcha">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="btn-reload-captcha">reload</button>
+                    </div>
+                    <div class="captcha_input">
+                        <label for="captcha" style="font-size: 14px">Input the code</label>
+                        <input type="text" name="captcha" id="inputCode">
+                        <div id="check_captcha"></div>
+                    </div>
+                </div>
 
                 <input type="text" name="addComment" hidden="hidden">
 
-                <button type="submit" class="btn btn-primary" id="btn-submit" >Send message</button>
+                <button type="submit" class="btn btn-primary" id="btn-submit" >Send comment</button>
             </div>
         </form>
         <div id="errorMessage" class="alert alert-danger" role="alert" hidden>

@@ -1,8 +1,19 @@
+body{
+    background-color: rgb(219, 219, 219);
+}
+
 .captcha{
+    /*margin-left: 20px;*/
+    display: flex;
     width: 120px;
 }
-.captcha{
-    margin-left: 20px;
+.captcha_image{
+    width: 250px;
+    /*border: 1px solid;*/
+    margin-right: 25px;
+}
+.captcha_input input{
+    width: 100px;
 }
 
 #formComment{
@@ -12,4 +23,10 @@
 
 #btn-submit{
     margin-left: auto;
+    height: 46px;
+}
+
+.check_captcha_success{
+    color: forestgreen;
+    font-weight: bold;
 }
