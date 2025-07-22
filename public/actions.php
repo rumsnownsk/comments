@@ -1,25 +1,17 @@
 <?php
 
+use Rum\core\Db;
+
+require_once '../vendor/autoload.php';
+
 $config = require_once '../config/config.php';
 require_once '../core/functions.php';
-require_once '../core/Db.php';
 
 
 $db = Db::getInstance()->getConnection($config['db']);
-//$data = json_decode(file_get_contents('php://input'), true);
-//var_dump(file_exists('../Vi/table-comments.php'));die;
+$data = json_decode(file_get_contents('php://input'), true);
 
-function htmlError($errs)
-{
-
-    $htmlError = '<ul>';
-    foreach ($errs as $err) {
-        $htmlError .= '<li>' . $err . '</li>';
-    }
-    $htmlError .= '</ul>';
-    return $htmlError;
-
-}
+!session_id() && session_start();
 
 
 // add comment
@@ -29,7 +21,8 @@ if (isset($_POST['addComment'])) {
     if (empty($message) || strlen($message) < 2) {
         $errors[] = 'Message cannot be empty or not anouth message';
     }
-    if ((int)$_POST['checkCode'] !== getCode()) {
+
+    if ((int)$_POST['captcha'] !== getCode()) {
         $errors[] = 'Wrong code';
     }
     unset($_POST);
@@ -40,23 +33,40 @@ if (isset($_POST['addComment'])) {
         ]);
 
     } else {
-        $user_agent = $_SERVER['HTTP_USER_AGENT'];
-        $db->query("INSERT INTO comments (user_agent, comment, created_at)
-                            VALUES (?, ?, ?)", [
-                    $user_agent, $message, time()
-                ]);
+        $userAgent = userAgent();
+        $userIP = userIP();
+        $db->query("INSERT INTO comments (user_agent, userIP, comment, created_at)
+                            VALUES (?,?,?,?)", [$userAgent, $userIP, $message, time()]);
 
         echo json_encode([
-            'result' => 'success',
+            'status' => 'success',
         ]);
-        die;
     }
+    die;
 }
 
+if ($data['action'] == 'inputCode') {
+    $code_captcha = $_SESSION['code_captcha'];
+    $userCode = (int)$data['input'];
+    if ($userCode == $code_captcha){
+        echo json_encode([
+            'status' => 'success',
+            'message' => '<p class="check_captcha_success">code is valid</p>'
+        ]);
+    } else {
+        echo json_encode([
+            'status' => 'error',
+        ]);
+    }
+    return;
+}
 
-
-//    echo json_encode([
-//        'result' => 'error',
-//    ]); die;
-
-
+if ($data['action'] == 'reloadCaptcha') {
+    $builder = captchaGenerate();
+    echo json_encode([
+        'status' => 'success',
+        'code'=>$_SESSION['code_captcha'],
+        'inlineCpt'=> $builder->inline()
+    ]);return;
+}
+die;

@@ -1,5 +1,11 @@
 <?php
 
+namespace Rum\core;
+
+use PDO;
+use PDOException;
+use PDOStatement;
+
 class Db
 {
 

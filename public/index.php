@@ -1,13 +1,10 @@
 <?php
-
-ini_set('display_errors', 1);
-error_reporting(-1);
+require_once '../vendor/autoload.php';
 
 $config = require_once '../config/config.php';
 require_once '../core/functions.php';
-require_once '../core/Db.php';
+require_once '../core/captcha.php';
 
-$db = Db::getInstance()->getConnection($config['db']);
 
 require_once "../Views/index.tpl.php";
 
