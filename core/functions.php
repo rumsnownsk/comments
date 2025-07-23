@@ -64,6 +64,25 @@ function userIP(): string
     return $_SERVER['REMOTE_ADDR'] ?? '';
 }
 
+function get_href($address = ''): string
+{
+    if (!empty($address)) {
+        $address = $address.".";
+    }
+
+    $host = HOST;
+    if (empty($host)) return '#';
+    $arr = explode(".", $host);
+    $location = end($arr);
+
+    if ($location == 'ru') {
+        return "https://{$address}iocode.{$location}";
+    } elseif ($location == 'loc') {
+        return "http://{$address}iocode.{$location}";
+    } else return '#';
+}
+
+
 
 
 

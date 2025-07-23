@@ -15,14 +15,17 @@ $comments = get_comments();
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-<div class="container">
+<div class="container mt-2">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12" style="position:relative;">
+            <div class="btnBack">
+                <a href="<?= get_href() ?>" class="btn btn-dark">&#x25c0; Home page</a>
+            </div>
             <h1 class="text-center h3 my-3">Leave your comment</h1>
         </div>
     </div>
     <div class="row">
-        <form action="" method="" id="formComment" class="d-flex">
+        <form action="" method="" id="formComment" class="d-flex mt-4">
 
             <div class="mb-3">
                 <label for="message" class="form-label">Your message</label>
