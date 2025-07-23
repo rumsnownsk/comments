@@ -11,9 +11,9 @@ return [
     'db' => [
         'host' => 'localhost',
         'port' => '3306',
-        'username' => '',
-        'password' => '',
-        'dbname' => '',
+        'username' => 'admin',
+        'password' => 'admin',
+        'dbname' => 'iocode',
         'charset' => 'utf8',
         'options' => [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
