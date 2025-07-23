@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "gregwar/captcha": "^1.3",
+        "gregwar/captcha": "^1.2",
       "ext-pdo": "*"
     }
 }

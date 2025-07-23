@@ -4,31 +4,30 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b9680ffb0898e8df5156c48af43c9bb",
+    "content-hash": "970434016396782b26aea225d13dd77c",
     "packages": [
         {
             "name": "gregwar/captcha",
-            "version": "v1.3.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gregwar/Captcha.git",
-                "reference": "4edbcd09fde4353b94ce550f43460eba73baf2cc"
+                "reference": "229d3cdfe33d6f1349e0aec94a26e9205a6db08e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/4edbcd09fde4353b94ce550f43460eba73baf2cc",
-                "reference": "4edbcd09fde4353b94ce550f43460eba73baf2cc",
+                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/229d3cdfe33d6f1349e0aec94a26e9205a6db08e",
+                "reference": "229d3cdfe33d6f1349e0aec94a26e9205a6db08e",
                 "shasum": ""
             },
             "require": {
-                "ext-fileinfo": "*",
                 "ext-gd": "*",
                 "ext-mbstring": "*",
                 "php": ">=5.3.0",
                 "symfony/finder": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7.21 || ^6.4 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "autoload": {
@@ -58,11 +57,7 @@
                 "captcha",
                 "spam"
             ],
-            "support": {
-                "issues": "https://github.com/Gregwar/Captcha/issues",
-                "source": "https://github.com/Gregwar/Captcha/tree/v1.3.0"
-            },
-            "time": "2025-06-23T12:25:54+00:00"
+            "time": "2023-09-26T13:45:37+00:00"
         },
         {
             "name": "symfony/finder",
@@ -139,5 +134,5 @@
         "ext-pdo": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "1.1.0"
 }
