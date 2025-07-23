@@ -2,6 +2,14 @@ body{
     background-color: rgb(219, 219, 219);
 }
 
+.btnBack{
+    position: absolute;
+}
+
+.btnBack a{
+    color: bisque;
+}
+
 .captcha{
     /*margin-left: 20px;*/
     display: flex;
